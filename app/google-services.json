@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "736300991797",
+    "firebase_url": "https://topit-d4c0f.firebaseio.com",
+    "project_id": "topit-d4c0f",
+    "storage_bucket": "topit-d4c0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736300991797:android:e3f19032fd446b5a",
+        "android_client_info": {
+          "package_name": "com.example.topit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736300991797-6i3puicsrnda65v4ub8noajc3brk04gl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.topit",
+            "certificate_hash": "4affc2d6ff13e81e7277580a71a970fb08a0b8c9"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt-mRVzyXN-Zw9IFnvp8MxhMKP0VVDePs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736300991797-jtdkuh90lh4lvspgl56qvlkl3itqcpej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
