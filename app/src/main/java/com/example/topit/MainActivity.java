@@ -3,6 +3,7 @@ package com.example.topit;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
     private Button loButton;
     private FirebaseAuth firebaseAuth;
+    private Toolbar toolbar;
 
 
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolbar = (Toolbar) findViewById(R.id.appBarId);
+        setSupportActionBar(toolbar);
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() == null){
             finish();

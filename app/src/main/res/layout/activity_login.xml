@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@color/darkTheme">
 
     <EditText
         android:id="@+id/email"
@@ -14,6 +15,7 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -27,6 +29,7 @@
         android:layout_marginTop="256dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:textColor="#FFFFFF"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/logButton"
@@ -39,10 +42,11 @@
     <Button
         android:id="@+id/logButton"
         android:layout_width="216dp"
-        android:layout_height="57dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="Login"
+        android:background="@drawable/button_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -57,7 +61,42 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="No account yet? Create one"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logButton" />
+
+    <ImageView
+        android:id="@+id/emailIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_email_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/email"
+        app:layout_constraintEnd_toStartOf="@+id/email" />
+
+    <ImageView
+        android:id="@+id/lockIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_lock_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/password"
+        app:layout_constraintEnd_toStartOf="@+id/password" />
+
+    <ImageView
+        android:layout_width="109dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/top_it_png_logo"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
