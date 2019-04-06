@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="darkTheme">#363834</color>
+    <color name="orange">#FF5E21</color>
+    <color name="toolBarOrange">#D55A28</color>
 </resources>

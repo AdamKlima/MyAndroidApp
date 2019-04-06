@@ -2,6 +2,9 @@
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#D55A28">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#D55A28"
+    android:id="@+id/myToolbar"
+    tools:context=".NavigationDrawer">
 
 </android.support.v7.widget.Toolbar>
