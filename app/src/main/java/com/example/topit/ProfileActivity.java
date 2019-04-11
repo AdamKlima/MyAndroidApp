@@ -1,9 +1,8 @@
 package com.example.topit;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,15 +12,29 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class NavigationDrawer extends AppCompatActivity
+import com.example.topit.Fragments.TrainingFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+public class ProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navigation_drawer);
+        setContentView(R.layout.activity_nav_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() == null){
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+
+        FirebaseUser user =firebaseAuth.getCurrentUser();
 
 
 
@@ -48,7 +61,7 @@ public class NavigationDrawer extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
+        getMenuInflater().inflate(R.menu.nav_drawer, menu);
         return true;
     }
 
@@ -60,7 +73,7 @@ public class NavigationDrawer extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.profile) {
+        if (id == R.id.action_settings) {
             return true;
         }
 
@@ -73,11 +86,25 @@ public class NavigationDrawer extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.profile) {
-            // Handle the camera action
-        } else if (id == R.id.training) {
+        if (id == R.id.nav_profile) {
 
-        } else if (id == R.id.logout) {
+            setTitle("Profile");
+            Intent intent = new Intent(this, ProfileActivity.class); // Takto sa dostanem do toho layoutu kde zacinam -- moj case do profilu
+            startActivity(intent);
+
+
+        } else if (id == R.id.nav_training) {
+            setTitle("Training");
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.main, new TrainingFragment());
+            ft.addToBackStack(null);
+            ft.commit();
+
+
+        } else if (id == R.id.nav_logout) {
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
 
         }
 
