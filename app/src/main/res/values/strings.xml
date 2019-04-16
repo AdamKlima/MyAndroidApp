@@ -13,9 +13,14 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="title_activity_nav_drawer">NavDrawerActivity</string>
-    <string name="quote1">Break your comfort zone!</string>
-    <string name="quote2">Break something</string>
-    <string name="quote3">Break someone</string>
+    <string name="quote1">Today I will do what others won’t, so tomorrow I can accomplish what others can’t.” —Jerry Rice</string>
+    <string name="quote2">“Do something today that your future self will thank you for.”</string>
+    <string name="quote3">“We are what we repeatedly do. Excellence then is not an act but a habit.” —Aristotle</string>
+    <string name="quote4">“No matter how slow you go, you are still lapping everybody on the couch.”</string>
+    <string name="quote5">“You miss 100% of the shots you don’t take.” —Wayne Gretzky</string>
+    <string name="quote6">The difference between the impossible and the possible lies in a person’s determination.” —Tommy Lasorda</string>
+    <string name="quote7">“To give anything less than your best is to sacrifice the gift.” —Steve Prefontaine</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

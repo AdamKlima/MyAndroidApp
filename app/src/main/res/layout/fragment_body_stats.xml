@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkTheme"
+    tools:context=".Fragments.BodyStatsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ScrollView
+            android:id="@+id/scrollView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#494747"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/darkTheme"
+                    android:padding="10dp"
+                    android:text="General Info" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/textviev_background"
+                    android:drawableLeft="@drawable/ic_person_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:paddingVertical="10dp"
+                    android:text="Name: "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:drawableLeft="@drawable/ic_vertical_align_top_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textviev_background"
+                    android:paddingVertical="10dp"
+                    android:text="Height: "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:drawableLeft="@drawable/ic_filter_frames_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textviev_background"
+                    android:paddingVertical="10dp"
+                    android:text="Weight: "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textviev_background"
+                    android:paddingVertical="10dp"
+                    android:text="Body Fat: "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:text="Your BMI: "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/darkTheme"
+                    android:text="Measurements" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textviev_background"
+                    android:paddingVertical="10dp"
+                    android:text="Biceps: "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textviev_background"
+                    android:paddingVertical="10dp"
+                    android:text="Neck:  "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textviev_background"
+                    android:paddingVertical="10dp"
+                    android:text="Chest:  "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textviev_background"
+                    android:paddingVertical="10dp"
+                    android:text="Waist: "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textviev_background"
+                    android:paddingVertical="10dp"
+                    android:text="Thighs: "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textviev_background"
+                    android:paddingVertical="10dp"
+                    android:text="Calves: "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

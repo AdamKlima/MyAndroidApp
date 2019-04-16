@@ -2,14 +2,8 @@ package com.example.topit;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
-
-import com.example.topit.Fragments.ProfileFragment;
-
-import java.util.Random;
 
 public class WelcomeActivity extends AppCompatActivity {
 
