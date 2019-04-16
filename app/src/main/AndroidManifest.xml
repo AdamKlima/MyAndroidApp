@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".WelcomeActivity"></activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -18,10 +19,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProfileActivity"
+            android:name=".NavDrawerActivity"
             android:label="TopIt"
-            android:theme="@style/NoActionBar"></activity>
-
+            android:theme="@style/NoActionBar" />
     </application>
 
 </manifest>

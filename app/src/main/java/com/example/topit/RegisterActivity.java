@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() !=null){
             finish();
-            Intent intent = new Intent(RegisterActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(RegisterActivity.this, NavDrawerActivity.class);
             startActivity(intent);
         }
         progressDialog = new ProgressDialog(this);
@@ -84,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         if(task.isSuccessful()){
                             finish();
                             Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, ProfileActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
                             startActivity(intent);
                         }
                         else{
