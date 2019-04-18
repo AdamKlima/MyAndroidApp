@@ -37,10 +37,15 @@
                     android:text="General Info" />
 
 
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="horizontal"
+                   android:background="@drawable/textviev_background">
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="@drawable/textviev_background"
                     android:drawableLeft="@drawable/ic_person_black_24dp"
                     android:drawablePadding="5dp"
                     android:paddingVertical="10dp"
@@ -48,13 +53,33 @@
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
+                   <TextView
+                       android:id="@+id/nameChange"
+                       android:layout_width="wrap_content"
+                       android:layout_height="match_parent"
+                       android:text="-"
+                       android:layout_marginLeft="10dp"
+                       android:paddingVertical="10dp"
+                       android:textColor="#ffffff"
+                       android:textSize="19dp"
+                       android:textStyle="bold"
+                       />
 
+
+
+               </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background">
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_vertical_align_top_black_24dp"
                     android:drawablePadding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textviev_background"
                     android:paddingVertical="10dp"
                     android:text="Height: "
                     android:textColor="#ffffff"
@@ -62,104 +87,366 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/heightChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:layout_marginLeft="10dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_filter_frames_black_24dp"
                     android:drawablePadding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textviev_background"
                     android:paddingVertical="10dp"
                     android:text="Weight: "
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
-
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/weightChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:layout_marginLeft="10dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background">
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textviev_background"
                     android:paddingVertical="10dp"
                     android:text="Body Fat: "
+                    android:drawableLeft="@drawable/ic_stat_name"
+                    android:drawableTint="@color/orange"
+                    android:drawablePadding="5dp"
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/bodyFatChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:layout_marginLeft="10dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
                     android:text="Your BMI: "
+                    android:drawableLeft="@drawable/ic_favorite_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:background="@drawable/textviev_background"
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView2"
-                    android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/darkTheme"
+                    android:padding="10dp"
                     android:text="Measurements" />
 
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background">
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textviev_background"
                     android:paddingVertical="10dp"
                     android:text="Biceps: "
+                    android:paddingLeft="5dp"
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textviev_background"
+                    android:id="@+id/bicepsChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:layout_marginLeft="10dp"
                     android:paddingVertical="10dp"
-                    android:text="Neck:  "
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/qm1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:clickable="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_help_outline_black_24dp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:text="Forearms:  "
+                    android:paddingLeft="5dp"
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/forearmnsChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:layout_marginLeft="10dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textviev_background"
+                    >
+
+                    <ImageView
+                        android:id="@+id/qm2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:clickable="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_help_outline_black_24dp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
                     android:text="Chest:  "
+                    android:paddingLeft="5dp"
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/chestChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:layout_marginLeft="10dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textviev_background"
+                    >
+
+                    <ImageView
+                        android:id="@+id/qm3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:clickable="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_help_outline_black_24dp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
                     android:text="Waist: "
+                    android:paddingLeft="5dp"
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/waistChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:layout_marginLeft="10dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textviev_background"
+                    >
+
+                    <ImageView
+                        android:id="@+id/qm4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:clickable="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_help_outline_black_24dp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
                     android:text="Thighs: "
+                    android:paddingLeft="5dp"
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/thighsChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:layout_marginLeft="10dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textviev_background"
+                    >
+
+                    <ImageView
+                        android:id="@+id/qm5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:clickable="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_help_outline_black_24dp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
                     android:text="Calves: "
+                    android:paddingLeft="5dp"
+
                     android:textColor="#ffffff"
                     android:textSize="19dp"
                     android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/calvesChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:layout_marginLeft="10dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
 
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     >
 
-
+                    <ImageView
+                        android:id="@+id/qm6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:clickable="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_help_outline_black_24dp" />
+                </RelativeLayout>
+            </LinearLayout>
 
 
 
@@ -167,6 +454,18 @@
 
             </LinearLayout>
         </ScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButtonChangeStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:clickable="true"
+            android:src="@drawable/ic_edit_black_24dp"
+            app:backgroundTint="@color/toolBarOrange"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </android.support.constraint.ConstraintLayout>

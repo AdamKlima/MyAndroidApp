@@ -14,7 +14,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.topit.Fragments.BodyStatsFragment;
-import com.example.topit.Fragments.TrainingFragment;
+import com.example.topit.Fragments.ChangeBodyStats;
+import com.example.topit.Fragments.RecordsFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -100,6 +101,13 @@ public class NavDrawerActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        else if(id == R.id.action_change_body_stats){
+            setTitle("Change your body stats");
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.main, new ChangeBodyStats());
+            ft.addToBackStack(null);
+            ft.commit();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -121,15 +129,25 @@ public class NavDrawerActivity extends AppCompatActivity
             }
 
 
-         else if (id == R.id.nav_training) {
-            setTitle("Training");
+         else if (id == R.id.nav_records) {
+            setTitle("Records");
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.main, new TrainingFragment());
+            ft.replace(R.id.main, new RecordsFragment());
             ft.addToBackStack(null);
             ft.commit();
 
 
-        } else if (id == R.id.nav_logout) {
+        } else if (id == R.id.nav_change_body_stats){
+            setTitle("Change your body stats");
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.main, new ChangeBodyStats());
+            ft.addToBackStack(null);
+            ft.commit();
+
+        }
+
+
+        else if (id == R.id.nav_logout) {
             firebaseAuth.signOut();
             finish();
             startActivity(new Intent(this, LoginActivity.class));

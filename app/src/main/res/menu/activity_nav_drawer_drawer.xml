@@ -9,19 +9,25 @@
             android:icon="@drawable/ic_person_black_24dp"
             android:title="Body Stats" />
         <item
-            android:id="@+id/nav_training"
+            android:id="@+id/nav_records"
             android:icon="@drawable/ic_fitness_center_black_24dp"
-            android:title="Training" />
+            android:title="Records" />
+        <item
+            android:id="@+id/nav_change_body_stats"
+            android:icon="@drawable/ic_edit_black_24dp"
+            android:title="Change your body stats"
+
+            />
 
     </group>
 
     <item android:title="">
-
+        <menu>
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_power_settings_new_black_24dp"
                 android:title="Logout" />
-
+        </menu>
 
     </item>
 
