@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,12 +11,380 @@
 
 
     <android.support.constraint.ConstraintLayout
-        android:id=""
+        android:id="@+id/changeBodyStats"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="#494747"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textviev_background"
+                    >
+
+                    <EditText
+                        android:id="@+id/editName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        android:padding="15dp"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ap1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/textviev_background"
+                >
+                <EditText
+                    android:id="@+id/editHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Height"
+                    android:padding="15dp"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/ap2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:clickable="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_check_circle_black_24dp" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textviev_background"
+                    >
+                    <EditText
+                        android:id="@+id/editWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Weight"
+                        android:padding="15dp"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ap3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textviev_background"
+                    >
+                    <EditText
+                        android:id="@+id/editBodyFat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Body Fat"
+                        android:padding="15dp"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ap4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textviev_background"
+                    >
+                    <EditText
+                        android:id="@+id/editBiceps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Bicep measurement"
+                        android:padding="15dp"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ap5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textviev_background"
+                    >
+                    <EditText
+                        android:id="@+id/editForearms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Forearms measurement"
+                        android:padding="15dp"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ap6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textviev_background"
+                    >
+                    <EditText
+                        android:id="@+id/editChest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Chest measurement"
+                        android:padding="15dp"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ap7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textviev_background"
+                    >
+                    <EditText
+                        android:id="@+id/editWaist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Waist measurement"
+                        android:padding="15dp"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ap8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textviev_background"
+                    >
+                    <EditText
+                        android:id="@+id/editThighs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Thighs measurement"
+                        android:padding="15dp"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ap9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textviev_background"
+                    >
+                    <EditText
+                        android:id="@+id/editCalves"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Calf measurement"
+                        android:padding="15dp"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ap10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
 
 
 
+
+
+            </LinearLayout>
+        </ScrollView>
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
