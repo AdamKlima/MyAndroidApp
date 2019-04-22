@@ -1,26 +1,43 @@
 package com.example.topit.Fragments;
 
 
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.topit.DatabaseContent.User;
 import com.example.topit.R;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BodyStatsFragment extends Fragment {
+public class BodyStatsFragment extends Fragment{
+
+    private static final String TAG = "MyActivity";
 
     FloatingActionButton fab;
-
+    TextView nameToChange;
+   /* private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference mRootReference = firebaseDatabase.getReference().child("name");
+    private DatabaseReference mNameRef = mRootReference.child("name");*/
 
     public BodyStatsFragment() {
         // Required empty public constructor
@@ -43,6 +60,7 @@ public class BodyStatsFragment extends Fragment {
             }
         });
 
+
         ImageView qm1 = (ImageView) v.findViewById(R.id.qm1);
         ImageView qm2 = (ImageView) v.findViewById(R.id.qm2);
         ImageView qm3 = (ImageView) v.findViewById(R.id.qm3);
@@ -57,6 +75,9 @@ public class BodyStatsFragment extends Fragment {
     qm4.setOnClickListener(handleClick);
     qm5.setOnClickListener(handleClick);
     qm6.setOnClickListener(handleClick);
+
+    nameToChange = (TextView) v.findViewById(R.id.nameChange);
+
 
 
 
@@ -92,7 +113,6 @@ public class BodyStatsFragment extends Fragment {
 
         }
     };
-
 
 
 
