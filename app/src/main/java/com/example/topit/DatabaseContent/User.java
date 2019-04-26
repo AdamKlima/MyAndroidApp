@@ -1,9 +1,9 @@
 package com.example.topit.DatabaseContent;
 
 public class User {
-    String userId;
-  public    String userName;
-    String userHeight;
+
+   private String userName;
+   private  String userHeight;
     String userWeight;
     String userBodyFat;
     String userBicep;
@@ -17,23 +17,8 @@ public class User {
 
     }
 
-    public User(String userId, String userName, String userHeight, String userWeight, String userBodyFat, String userBicep, String userForearm, String userChest, String userWaist, String userThighs, String userCalves) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userHeight = userHeight;
-        this.userWeight = userWeight;
-        this.userBodyFat = userBodyFat;
-        this.userBicep = userBicep;
-        this.userForearm = userForearm;
-        this.userChest = userChest;
-        this.userWaist = userWaist;
-        this.userThighs = userThighs;
-        this.userCalves = userCalves;
-    }
 
-    public String getUserId() {
-        return userId;
-    }
+
 
     public String getUserName() {
         return userName;
@@ -75,9 +60,6 @@ public class User {
         return userCalves;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public void setUserName(String userName) {
         this.userName = userName;

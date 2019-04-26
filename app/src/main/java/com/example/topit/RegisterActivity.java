@@ -84,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         if(task.isSuccessful()){
                             finish();
                             Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, NavDrawerActivity.class);
                             startActivity(intent);
                         }
                         else{

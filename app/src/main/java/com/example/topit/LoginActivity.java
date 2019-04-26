@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if(task.isSuccessful())
                         {
                             Toast.makeText(LoginActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, NavDrawerActivity.class);
                             startActivity(intent);
                         }
                         else{

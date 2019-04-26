@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.topit.DatabaseContent.User;
 import com.example.topit.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,15 +28,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static android.support.constraint.Constraints.TAG;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BodyStatsFragment extends Fragment{
 
-    private static final String TAG = "MyActivity";
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase mFirebaseDatabase;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private DatabaseReference myRef;
+    private String userID;
+
 
     FloatingActionButton fab;
-    TextView nameToChange;
+    TextView nameToChange, heigthToChange, weightToChange;
    /* private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mRootReference = firebaseDatabase.getReference().child("name");
     private DatabaseReference mNameRef = mRootReference.child("name");*/
@@ -76,14 +85,68 @@ public class BodyStatsFragment extends Fragment{
     qm5.setOnClickListener(handleClick);
     qm6.setOnClickListener(handleClick);
 
-    nameToChange = (TextView) v.findViewById(R.id.nameChange);
 
+
+    weightToChange = (TextView)v.findViewById(R.id.weightChange);
+    heigthToChange = (TextView)v.findViewById(R.id.heightChange);
+    nameToChange = (TextView) v.findViewById(R.id.nameChange);
+    mAuth =FirebaseAuth.getInstance();
+    mFirebaseDatabase = FirebaseDatabase.getInstance();
+    myRef = mFirebaseDatabase.getReference();
+    FirebaseUser user = mAuth.getCurrentUser();
+    userID = user.getUid();
+
+    mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+        @Override
+        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            if(user != null){
+                Log.d(TAG, "onAuthStateChanged: signed_in:" + user.getUid());
+               // Toast.makeText(getActivity(),"Successfully signed in with: "+user.getEmail(),Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Log.d(TAG,"onAuthStateChanged: signed_out:");
+                Toast.makeText(getActivity(),"Successfully signed out",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+    myRef.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange( DataSnapshot dataSnapshot) {
+
+            showData(dataSnapshot);
+
+        }
+
+        @Override
+        public void onCancelled( DatabaseError databaseError) {
+
+        }
+    });
 
 
 
 
 
         return v;
+    }
+
+    private void showData(DataSnapshot dataSnapshot){
+        for(DataSnapshot ds : dataSnapshot.getChildren()){
+            User userInfo = new User();
+
+            userInfo.setUserName(ds.child(userID).getValue(User.class).getUserName());
+            userInfo.setUserHeight(ds.child(userID).getValue(User.class).getUserHeight());
+
+            nameToChange.setText(userInfo.getUserName());
+            heigthToChange.setText(userInfo.getUserHeight());
+            weightToChange.setText(userInfo.getUserWeight());
+
+
+
+        }
+
     }
 
     private View.OnClickListener handleClick = new View.OnClickListener() {
@@ -113,6 +176,21 @@ public class BodyStatsFragment extends Fragment{
 
         }
     };
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthStateListener);
+    }
+    @Override
+    public void onStop(){
+        super.onStop();
+        if(mAuthStateListener != null){
+            mAuth.removeAuthStateListener(mAuthStateListener);
+        }
+
+    }
 
 
 
