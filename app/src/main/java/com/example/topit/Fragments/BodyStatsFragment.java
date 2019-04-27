@@ -1,13 +1,11 @@
 package com.example.topit.Fragments;
 
 
-import android.nfc.Tag;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,11 +15,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.topit.DatabaseContent.User;
+import com.example.topit.DatabaseContent.MyAppDatabase;
+import com.example.topit.DatabaseContent.MyDao;
+import com.example.topit.DatabaseContent.Repository;
 import com.example.topit.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,18 +39,13 @@ public class BodyStatsFragment extends Fragment{
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private DatabaseReference myRef;
     private String userID;
-
-
+    private Repository repository;
     FloatingActionButton fab;
     TextView nameToChange, heigthToChange, weightToChange;
-   /* private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference mRootReference = firebaseDatabase.getReference().child("name");
-    private DatabaseReference mNameRef = mRootReference.child("name");*/
 
     public BodyStatsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,6 +63,8 @@ public class BodyStatsFragment extends Fragment{
             }
         });
 
+        repository= new Repository(this.getContext());
+
 
         ImageView qm1 = (ImageView) v.findViewById(R.id.qm1);
         ImageView qm2 = (ImageView) v.findViewById(R.id.qm2);
@@ -85,16 +81,13 @@ public class BodyStatsFragment extends Fragment{
     qm5.setOnClickListener(handleClick);
     qm6.setOnClickListener(handleClick);
 
-
-
     weightToChange = (TextView)v.findViewById(R.id.weightChange);
     heigthToChange = (TextView)v.findViewById(R.id.heightChange);
     nameToChange = (TextView) v.findViewById(R.id.nameChange);
     mAuth =FirebaseAuth.getInstance();
-    mFirebaseDatabase = FirebaseDatabase.getInstance();
-    myRef = mFirebaseDatabase.getReference();
-    FirebaseUser user = mAuth.getCurrentUser();
-    userID = user.getUid();
+
+    initName();
+
 
     mAuthStateListener = new FirebaseAuth.AuthStateListener() {
         @Override
@@ -110,44 +103,9 @@ public class BodyStatsFragment extends Fragment{
             }
         }
     };
-
-    myRef.addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange( DataSnapshot dataSnapshot) {
-
-            showData(dataSnapshot);
-
-        }
-
-        @Override
-        public void onCancelled( DatabaseError databaseError) {
-
-        }
-    });
-
-
-
-
-
         return v;
     }
 
-    private void showData(DataSnapshot dataSnapshot){
-        for(DataSnapshot ds : dataSnapshot.getChildren()){
-            User userInfo = new User();
-
-            userInfo.setUserName(ds.child(userID).getValue(User.class).getUserName());
-            userInfo.setUserHeight(ds.child(userID).getValue(User.class).getUserHeight());
-
-            nameToChange.setText(userInfo.getUserName());
-            heigthToChange.setText(userInfo.getUserHeight());
-            weightToChange.setText(userInfo.getUserWeight());
-
-
-
-        }
-
-    }
 
     private View.OnClickListener handleClick = new View.OnClickListener() {
         @Override
@@ -192,6 +150,30 @@ public class BodyStatsFragment extends Fragment{
 
     }
 
+    private void initName() {
+        new SetUserNameAsync().execute();
+    }
+
+
+     class SetUserNameAsync extends AsyncTask<Void, Void, Void> {
+
+        public SetUserNameAsync() {}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String name = repository.getUser(id).getName();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    nameToChange.setText(name);
+                }
+            });
+
+            return null;
+        }
+    }
 
 
 

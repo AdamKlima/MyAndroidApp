@@ -1,19 +1,19 @@
 package com.example.topit.Fragments;
 
 
+import android.arch.lifecycle.LiveData;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.example.topit.DatabaseContent.User;
+import com.example.topit.DatabaseContent.Repository;
+import com.example.topit.DatabaseContent.UserInfo;
 import com.example.topit.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,8 +27,9 @@ import static android.support.constraint.Constraints.TAG;
  */
 public class ChangeBodyStats extends Fragment {
     EditText editMyName,editHeight,editWeight,editBodyFat,editBiceps,editForearms,editChest,editWaist,editThighs,editCalves;
+    private Repository repository;
 
-
+    private LiveData<UserInfo> userInfo;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
@@ -46,10 +47,9 @@ public class ChangeBodyStats extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_change_body_stats, container, false);
 
-
+        repository = new Repository(this.getContext());
         mAuth =FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = mFirebaseDatabase.getReference();
+
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -96,10 +96,16 @@ public class ChangeBodyStats extends Fragment {
         FirebaseUser user = mAuth.getCurrentUser();
         String userID = user.getUid();
 
-
-
-
         return v;
+    }
+
+    public void updateName() {
+        String name = editMyName.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserName(id, name);
+        Log.d("update", " name was updated ");
     }
 
     public void onResume() {
@@ -112,10 +118,11 @@ public class ChangeBodyStats extends Fragment {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.ap1:
-                    editUserName();
+                    updateName();
+
                     break;
                 case R.id.ap2:
-                    editUserHeight();
+
                     break;
 
             }
@@ -125,24 +132,7 @@ public class ChangeBodyStats extends Fragment {
 
     };
 
-    private void editUserName(){
-        String userName = editMyName.getText().toString().trim();
-        if(!userName.equals("")){
-            FirebaseUser user = mAuth.getCurrentUser();
-            String userID = user.getUid();
-            myRef.child("users").child(userID).child("name").setValue(userName);
-        }
 
-    }
-    private void editUserHeight(){
-        String userHeight = editHeight.getText().toString().trim();
-        if(!userHeight.equals("")){
-            FirebaseUser user = mAuth.getCurrentUser();
-            String userID = user.getUid();
-            myRef.child("users").child(userID).child("height").setValue(userHeight);
-        }
-
-    }
 
     @Override
     public void onStart() {

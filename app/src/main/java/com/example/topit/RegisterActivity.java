@@ -2,6 +2,7 @@ package com.example.topit;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.topit.DatabaseContent.Repository;
+import com.example.topit.DatabaseContent.UserInfo;
 import com.example.topit.util.InputDataValidator;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Button RegButton;
     private EditText Email, Password;
     private TextView mTextView;
-
+    private Repository repository;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
@@ -50,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         RegButton.setOnClickListener(this);
         mTextView.setOnClickListener(this);
 
+        repository = new Repository(this);
     }
 
     private void registerUser(){
@@ -82,7 +86,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            finish();
+                            String id = firebaseAuth.getCurrentUser().getUid();
+                            new CreateUser(id).execute();
+
                             Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this, NavDrawerActivity.class);
                             startActivity(intent);
@@ -107,5 +113,20 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             startActivity(intent);
         }
 
+    }
+
+    class CreateUser extends AsyncTask<Void, Void, Void> {
+        private String id;
+
+        public CreateUser(String id) {
+            this.id = id;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            UserInfo user = new UserInfo(id, "", "","","","","","","","","");
+            repository.createUser(user);
+            return null;
+        }
     }
 }
