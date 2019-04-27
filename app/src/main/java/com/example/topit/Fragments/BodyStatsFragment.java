@@ -35,10 +35,7 @@ import static android.support.constraint.Constraints.TAG;
 public class BodyStatsFragment extends Fragment{
 
     private FirebaseAuth mAuth;
-    private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private DatabaseReference myRef;
-    private String userID;
     private Repository repository;
     FloatingActionButton fab;
     TextView nameToChange, heigthToChange, weightToChange;
@@ -84,8 +81,8 @@ public class BodyStatsFragment extends Fragment{
     weightToChange = (TextView)v.findViewById(R.id.weightChange);
     heigthToChange = (TextView)v.findViewById(R.id.heightChange);
     nameToChange = (TextView) v.findViewById(R.id.nameChange);
-    mAuth =FirebaseAuth.getInstance();
 
+    mAuth =FirebaseAuth.getInstance();
     initName();
 
 
@@ -135,20 +132,7 @@ public class BodyStatsFragment extends Fragment{
         }
     };
 
-    @Override
-    public void onStart() {
 
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthStateListener);
-    }
-    @Override
-    public void onStop(){
-        super.onStop();
-        if(mAuthStateListener != null){
-            mAuth.removeAuthStateListener(mAuthStateListener);
-        }
-
-    }
 
     private void initName() {
         new SetUserNameAsync().execute();
@@ -173,6 +157,22 @@ public class BodyStatsFragment extends Fragment{
 
             return null;
         }
+    }
+
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthStateListener);
+    }
+    @Override
+    public void onStop(){
+        super.onStop();
+        if(mAuthStateListener != null){
+            mAuth.removeAuthStateListener(mAuthStateListener);
+        }
+
     }
 
 

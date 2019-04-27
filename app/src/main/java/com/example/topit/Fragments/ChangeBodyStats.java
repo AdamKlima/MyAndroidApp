@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.topit.DatabaseContent.Repository;
 import com.example.topit.DatabaseContent.UserInfo;
@@ -28,12 +29,9 @@ import static android.support.constraint.Constraints.TAG;
 public class ChangeBodyStats extends Fragment {
     EditText editMyName,editHeight,editWeight,editBodyFat,editBiceps,editForearms,editChest,editWaist,editThighs,editCalves;
     private Repository repository;
-
-    private LiveData<UserInfo> userInfo;
     private FirebaseAuth mAuth;
-    private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private DatabaseReference myRef;
+
 
     public ChangeBodyStats() {
         // Required empty public constructor
@@ -92,9 +90,15 @@ public class ChangeBodyStats extends Fragment {
 
         ok1.setOnClickListener(handleClick);
         ok2.setOnClickListener(handleClick);
+        ok3.setOnClickListener(handleClick);
+        ok4.setOnClickListener(handleClick);
+        ok5.setOnClickListener(handleClick);
+        ok6.setOnClickListener(handleClick);
+        ok7.setOnClickListener(handleClick);
+        ok8.setOnClickListener(handleClick);
+        ok9.setOnClickListener(handleClick);
+        ok10.setOnClickListener(handleClick);
 
-        FirebaseUser user = mAuth.getCurrentUser();
-        String userID = user.getUid();
 
         return v;
     }
@@ -108,18 +112,16 @@ public class ChangeBodyStats extends Fragment {
         Log.d("update", " name was updated ");
     }
 
-    public void onResume() {
-        super.onResume();
-        getActivity().setTitle("Change your body stats");
-    }
+
 
     private View.OnClickListener handleClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.ap1:
-                    updateName();
 
+                    updateName();
+                    editMyName.getText().clear();
                     break;
                 case R.id.ap2:
 
@@ -147,6 +149,10 @@ public class ChangeBodyStats extends Fragment {
             mAuth.removeAuthStateListener(mAuthStateListener);
         }
 
+    }
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle("Change your body stats");
     }
 
 }

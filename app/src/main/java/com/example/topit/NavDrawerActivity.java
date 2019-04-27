@@ -55,7 +55,6 @@ public class NavDrawerActivity extends AppCompatActivity
             startActivity(new Intent(this, LoginActivity.class));
         }
 
-        FirebaseUser user =firebaseAuth.getCurrentUser();
 
 
 
@@ -98,10 +97,8 @@ public class NavDrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        else if(id == R.id.action_change_body_stats){
+
+        if(id == R.id.action_change_body_stats){
             setTitle("Change your body stats");
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.main, new ChangeBodyStats());
