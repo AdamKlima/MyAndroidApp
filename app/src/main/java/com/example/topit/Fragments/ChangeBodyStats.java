@@ -112,6 +112,35 @@ public class ChangeBodyStats extends Fragment {
         Log.d("update", " name was updated ");
     }
 
+    public void updateHeight(){
+        String height = editHeight.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserHeight(id, height);
+        Log.d("update", " height was updated ");
+
+    }
+
+    public void updateWeight(){
+        String weight = editWeight.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserWeight(id, weight);
+        Log.d("update", " weight was updated ");
+
+    }
+    public void updateBodyFat(){
+        String bodyFat = editBodyFat.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserBodyFat(id, bodyFat);
+        Log.d("update", " body fat was updated ");
+
+    }
+
 
 
     private View.OnClickListener handleClick = new View.OnClickListener() {
@@ -124,10 +153,37 @@ public class ChangeBodyStats extends Fragment {
                     editMyName.getText().clear();
                     break;
                 case R.id.ap2:
+                    updateHeight();
+                    editHeight.getText().clear();
+                    break;
+                case R.id.ap3:
+                   updateWeight();
+                    editWeight.getText().clear();
+                    break;
+                case R.id.ap4:
+                    updateBodyFat();
+                    editBodyFat.getText().clear();
+                    break;
+                case R.id.ap5:
+
+                    break;
+                case R.id.ap6:
+
+                    break;
+                case R.id.ap7:
 
                     break;
 
-            }
+                case R.id.ap8:
+
+                    break;
+                case R.id.ap9:
+
+                    break;
+                case R.id.ap10:
+
+                    break;
+                }
 
         }
 

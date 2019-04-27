@@ -69,7 +69,7 @@ public class UserInfo {
         return weight;
     }
 
-    public void setWight(String wight) {
+    public void setWeight(String wight) {
         this.weight = wight;
     }
 

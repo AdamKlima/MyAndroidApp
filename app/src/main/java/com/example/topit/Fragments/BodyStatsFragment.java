@@ -27,6 +27,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import static android.support.constraint.Constraints.TAG;
 
 /**
@@ -38,7 +40,7 @@ public class BodyStatsFragment extends Fragment{
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private Repository repository;
     FloatingActionButton fab;
-    TextView nameToChange, heigthToChange, weightToChange;
+    TextView nameToChange, heigthToChange, weightToChange,bodyFatChange, bicepChange, forearmChange, chestChange, waistCHange, thighChange, calvesChange, bmiChange;
 
     public BodyStatsFragment() {
         // Required empty public constructor
@@ -81,9 +83,27 @@ public class BodyStatsFragment extends Fragment{
     weightToChange = (TextView)v.findViewById(R.id.weightChange);
     heigthToChange = (TextView)v.findViewById(R.id.heightChange);
     nameToChange = (TextView) v.findViewById(R.id.nameChange);
+    bodyFatChange = (TextView) v.findViewById(R.id.bodyFatChange);
+    bicepChange = (TextView) v.findViewById(R.id.bicepsChange);
+    forearmChange = (TextView) v.findViewById(R.id.forearmnsChange);
+    chestChange = (TextView) v.findViewById(R.id.chestChange);
+    waistCHange = (TextView) v.findViewById(R.id.waistChange);
+    thighChange = (TextView) v.findViewById(R.id.thighsChange);
+    calvesChange= (TextView) v.findViewById(R.id.calvesChange);
+    /*bmiChange = (TextView) v.findViewById(R.id.bmiChange);
+    int bmi = calculateBMI();
+    String x = Integer.toString(bmi);
+    bmiChange.setText(x);*/
+
 
     mAuth =FirebaseAuth.getInstance();
     initName();
+    initHeight();
+    initWeight();
+    initBodyFat();
+
+
+
 
 
     mAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -102,6 +122,19 @@ public class BodyStatsFragment extends Fragment{
     };
         return v;
     }
+
+    /*public int calculateBMI(){
+        String wg = weightToChange.getText().toString();
+        int weight = Integer.parseInt(wg);
+        String hg = heigthToChange.getText().toString();
+        int height = Integer.parseInt(hg);
+        int height2= height*height;
+        int bmi = weight / height2;
+        return bmi;
+
+    }*/
+
+
 
 
     private View.OnClickListener handleClick = new View.OnClickListener() {
@@ -158,6 +191,76 @@ public class BodyStatsFragment extends Fragment{
             return null;
         }
     }
+
+    private void initHeight(){
+        new SetUserHeightAsync().execute();
+    }
+
+    class SetUserHeightAsync extends AsyncTask<Void, Void, Void>{
+
+        public SetUserHeightAsync(){}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String height = repository.getUser(id).getHeight();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    heigthToChange.setText(height+ " cm");
+                }
+            });
+            return null;
+        }
+    }
+
+    private void initWeight(){
+        new SetUserWeightAsync().execute();
+    }
+
+    class SetUserWeightAsync extends AsyncTask<Void, Void, Void>{
+
+        public SetUserWeightAsync(){}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String weight = repository.getUser(id).getWeight();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    weightToChange.setText(weight+" kg");
+                }
+            });
+            return null;
+        }
+    }
+
+    private void initBodyFat(){
+        new SetUserBodyFatAsync().execute();
+    }
+
+    class SetUserBodyFatAsync extends AsyncTask<Void, Void, Void>{
+
+        public SetUserBodyFatAsync(){}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String bodyFat = repository.getUser(id).getBodyFat();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    bodyFatChange.setText(bodyFat+"%");
+                }
+            });
+            return null;
+        }
+    }
+
 
 
     @Override
