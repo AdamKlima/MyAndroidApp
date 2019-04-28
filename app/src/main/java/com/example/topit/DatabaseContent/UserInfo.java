@@ -23,10 +23,6 @@ public class UserInfo {
     private String calves;
 
 
-//    public UserInfo() {
-//
-//    }
-
     public UserInfo(String id, String height, String name, String weight, String bodyFat, String bicep, String forearm, String chest, String waist, String thighs, String calves) {
         this.id = id;
         this.height = height;
