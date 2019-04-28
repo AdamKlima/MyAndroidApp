@@ -39,6 +39,24 @@ public class Repository {
     public void updateUserBodyFat(String id, String bodyFat){
         new UpdateUserBodyFatAsyncTask(id,bodyFat).execute();
     }
+    public void updateUserBicep(String id, String bicep){
+        new UpdateUserBicepAsyncTask(id, bicep).execute();
+    }
+    public void updateUserForearm(String id, String forearm){
+        new UpdateUserForearmAsyncTask(id, forearm).execute();
+    }
+    public void updateUserChest(String id, String chest){
+        new UpdateUserChestAsyncTask(id, chest).execute();
+    }
+    public void updateUserWaist(String id, String chest){
+        new UpdateUserWaistAsyncTask(id, chest).execute();
+    }
+    public void updateUserThigh(String id, String thigh){
+        new UpdateUserThightAsyncTask(id,thigh).execute();
+    }
+    public void updateUserCalves(String id,String calves){
+        new UpdateUserCalvesAsyncTask(id,calves).execute();
+    }
 
 
     class InsertUserAsyncTask extends AsyncTask<Void,Void,Void> {
@@ -175,5 +193,156 @@ public class Repository {
 
 
     }
+    class UpdateUserBicepAsyncTask extends  AsyncTask<Void,Void,Void>{
+
+        private final String userId;
+        private final String bicep;
+        private UserInfo userInfo;
+
+
+        public UpdateUserBicepAsyncTask(String userId, String bicep){
+            this.userId = userId;
+            this.bicep = bicep;
+            this.userInfo = userInfo;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            Log.d("update", "update bicep async");
+            UserInfo user = myDao.getUser(userId);
+            user.setBicep(bicep);
+            myDao.updateUser(user);
+            return  null;
+        }
+
+
+    }
+    class UpdateUserForearmAsyncTask extends  AsyncTask<Void,Void,Void>{
+
+        private final String userId;
+        private final String forearm;
+        private UserInfo userInfo;
+
+
+        public UpdateUserForearmAsyncTask(String userId, String forearm){
+            this.userId = userId;
+            this.forearm = forearm;
+            this.userInfo = userInfo;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            Log.d("update", "update bicep async");
+            UserInfo user = myDao.getUser(userId);
+            user.setForearm(forearm);
+            myDao.updateUser(user);
+            return  null;
+        }
+
+
+    }
+    class UpdateUserChestAsyncTask extends  AsyncTask<Void,Void,Void>{
+
+        private final String userId;
+        private final String chest;
+        private UserInfo userInfo;
+
+
+        public UpdateUserChestAsyncTask(String userId, String chest){
+            this.userId = userId;
+            this.chest = chest;
+            this.userInfo = userInfo;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            Log.d("update", "update chest async");
+            UserInfo user = myDao.getUser(userId);
+            user.setChest(chest);
+            myDao.updateUser(user);
+            return  null;
+        }
+
+
+    }
+    class UpdateUserWaistAsyncTask extends  AsyncTask<Void,Void,Void>{
+
+        private final String userId;
+        private final String waist;
+        private UserInfo userInfo;
+
+
+        public UpdateUserWaistAsyncTask(String userId, String waist){
+            this.userId = userId;
+            this.waist = waist;
+            this.userInfo = userInfo;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            Log.d("update", "update waist async");
+            UserInfo user = myDao.getUser(userId);
+            user.setWaist(waist);
+            myDao.updateUser(user);
+            return  null;
+        }
+
+
+    }
+    class UpdateUserThightAsyncTask extends  AsyncTask<Void,Void,Void>{
+
+        private final String userId;
+        private final String thigh;
+        private UserInfo userInfo;
+
+
+        public UpdateUserThightAsyncTask(String userId, String thigh){
+            this.userId = userId;
+            this.thigh = thigh;
+            this.userInfo = userInfo;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            Log.d("update", "update thigh async");
+            UserInfo user = myDao.getUser(userId);
+            user.setThighs(thigh);
+            myDao.updateUser(user);
+            return  null;
+        }
+
+
+    }
+    class UpdateUserCalvesAsyncTask extends  AsyncTask<Void,Void,Void>{
+
+        private final String userId;
+        private final String calves;
+        private UserInfo userInfo;
+
+
+        public UpdateUserCalvesAsyncTask(String userId, String calves){
+            this.userId = userId;
+            this.calves = calves;
+            this.userInfo = userInfo;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            Log.d("update", "update calves async");
+            UserInfo user = myDao.getUser(userId);
+            user.setCalves(calves);
+            myDao.updateUser(user);
+            return  null;
+        }
+
+
+    }
+
 
 }

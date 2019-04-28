@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
+
 import static android.support.constraint.Constraints.TAG;
 
 /**
@@ -40,7 +43,8 @@ public class BodyStatsFragment extends Fragment{
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private Repository repository;
     FloatingActionButton fab;
-    TextView nameToChange, heigthToChange, weightToChange,bodyFatChange, bicepChange, forearmChange, chestChange, waistCHange, thighChange, calvesChange, bmiChange;
+    TextView nameToChange, heigthToChange, weightToChange,bodyFatChange, bicepChange, forearmChange, chestChange, waistCHange, thighChange, calvesChange;
+
 
     public BodyStatsFragment() {
         // Required empty public constructor
@@ -90,10 +94,6 @@ public class BodyStatsFragment extends Fragment{
     waistCHange = (TextView) v.findViewById(R.id.waistChange);
     thighChange = (TextView) v.findViewById(R.id.thighsChange);
     calvesChange= (TextView) v.findViewById(R.id.calvesChange);
-    /*bmiChange = (TextView) v.findViewById(R.id.bmiChange);
-    int bmi = calculateBMI();
-    String x = Integer.toString(bmi);
-    bmiChange.setText(x);*/
 
 
     mAuth =FirebaseAuth.getInstance();
@@ -101,10 +101,12 @@ public class BodyStatsFragment extends Fragment{
     initHeight();
     initWeight();
     initBodyFat();
-
-
-
-
+    initBicep();
+    initForearm();
+    initChest();
+    initWaist();
+    initThigh();
+    initCalves();
 
     mAuthStateListener = new FirebaseAuth.AuthStateListener() {
         @Override
@@ -122,20 +124,6 @@ public class BodyStatsFragment extends Fragment{
     };
         return v;
     }
-
-    /*public int calculateBMI(){
-        String wg = weightToChange.getText().toString();
-        int weight = Integer.parseInt(wg);
-        String hg = heigthToChange.getText().toString();
-        int height = Integer.parseInt(hg);
-        int height2= height*height;
-        int bmi = weight / height2;
-        return bmi;
-
-    }*/
-
-
-
 
     private View.OnClickListener handleClick = new View.OnClickListener() {
         @Override
@@ -231,7 +219,7 @@ public class BodyStatsFragment extends Fragment{
 
                 @Override
                 public void run() {
-                    weightToChange.setText(weight+" kg");
+                    weightToChange.setText(weight+ " kg");
                 }
             });
             return null;
@@ -261,6 +249,122 @@ public class BodyStatsFragment extends Fragment{
         }
     }
 
+    private void initBicep(){new SetUserBicepAsync().execute();}
+
+    class SetUserBicepAsync extends  AsyncTask<Void, Void, Void>{
+        public SetUserBicepAsync(){}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String bicep = repository.getUser(id).getBicep();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                   bicepChange.setText(bicep+" cm");
+                }
+            });
+            return null;
+        }
+
+    }
+    private void initForearm(){new SetUserForearmAsync().execute();}
+    class SetUserForearmAsync extends  AsyncTask<Void, Void, Void>{
+        public SetUserForearmAsync(){}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String forearm = repository.getUser(id).getForearm();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    forearmChange.setText(forearm+" cm");
+                }
+            });
+            return null;
+        }
+
+    }
+    private void initChest(){new SetUserChestAsync().execute();}
+    class SetUserChestAsync extends  AsyncTask<Void, Void, Void>{
+        public SetUserChestAsync(){}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String chest = repository.getUser(id).getChest();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    chestChange.setText(chest+" cm");
+                }
+            });
+            return null;
+        }
+
+    }
+    private void initWaist(){new SetUserWaistAsync().execute();}
+    class SetUserWaistAsync extends  AsyncTask<Void, Void, Void>{
+        public SetUserWaistAsync(){}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String waist = repository.getUser(id).getWaist();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    waistCHange.setText(waist+" cm");
+                }
+            });
+            return null;
+        }
+
+    }
+    private void initThigh(){new SetUserThighAsync().execute();}
+    class SetUserThighAsync extends  AsyncTask<Void, Void, Void>{
+        public SetUserThighAsync(){}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String thigh = repository.getUser(id).getThighs();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    thighChange.setText(thigh+" cm");
+                }
+            });
+            return null;
+        }
+
+    }
+    private void initCalves(){ new SetUserCalvesAsync().execute();}
+    class SetUserCalvesAsync extends  AsyncTask<Void, Void, Void>{
+        public SetUserCalvesAsync(){}
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String id = mAuth.getCurrentUser().getUid();
+            final String calves = repository.getUser(id).getCalves();
+            BodyStatsFragment.this.getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    calvesChange.setText(calves+" cm");
+                }
+            });
+            return null;
+        }
+
+    }
+
 
 
     @Override
@@ -277,9 +381,5 @@ public class BodyStatsFragment extends Fragment{
         }
 
     }
-
-
-
-
 
 }

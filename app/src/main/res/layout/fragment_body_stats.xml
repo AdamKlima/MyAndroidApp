@@ -160,37 +160,7 @@
                     />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:background="@drawable/textviev_background">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingVertical="10dp"
-                    android:text="Your BMI: "
-                    android:drawableLeft="@drawable/ic_favorite_black_24dp"
-                    android:drawablePadding="5dp"
-                    android:textColor="#ffffff"
-                    android:textSize="19dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/bmiChange"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="-"
-                    android:layout_marginLeft="10dp"
-                    android:paddingVertical="10dp"
-                    android:textColor="#ffffff"
-                    android:textSize="19dp"
-                    android:textStyle="bold"
-                    />
-
-
-            </LinearLayout>
 
 
                 <TextView

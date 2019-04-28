@@ -44,7 +44,7 @@ public abstract class MyAppDatabase extends RoomDatabase {
         protected Void doInBackground(Void... voids) {
             MyDao myDao = myAppDatabase.myDao();
             myDao.deleteAll();
-            UserInfo userInfo = new UserInfo( "F1N9ZvCh0MfObAzwNEsOzaaaYqL2","testName", "150", "70", "9", "32", "55", "55", "55", "55", "55");
+            UserInfo userInfo = new UserInfo( "F1N9ZvCh0MfObAzwNEsOzaaaYqL2","-", "-", "-", "-", "-", "-", "-", "-", "-", "-");
             myDao.createUser(userInfo);
             Log.d("update", myDao.getUser("F1N9ZvCh0MfObAzwNEsOzaaaYqL2").toString());
 

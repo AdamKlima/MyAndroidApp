@@ -8,10 +8,7 @@
             android:id="@+id/nav_body_stats"
             android:icon="@drawable/ic_person_black_24dp"
             android:title="Body Stats" />
-        <item
-            android:id="@+id/nav_records"
-            android:icon="@drawable/ic_fitness_center_black_24dp"
-            android:title="Records" />
+
         <item
             android:id="@+id/nav_change_body_stats"
             android:icon="@drawable/ic_edit_black_24dp"

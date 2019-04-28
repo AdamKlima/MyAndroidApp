@@ -1,7 +1,6 @@
 package com.example.topit.Fragments;
 
 
-import android.arch.lifecycle.LiveData;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -11,15 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.topit.DatabaseContent.Repository;
-import com.example.topit.DatabaseContent.UserInfo;
 import com.example.topit.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import static android.support.constraint.Constraints.TAG;
 
@@ -140,6 +135,60 @@ public class ChangeBodyStats extends Fragment {
         Log.d("update", " body fat was updated ");
 
     }
+    public void updateBicep(){
+        String bicep = editBiceps.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserBicep(id, bicep);
+        Log.d("update", " bicep was updated ");
+
+    }
+    public void updateForearm(){
+        String forearm = editForearms.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserForearm(id, forearm);
+        Log.d("update", " forearm was updated ");
+
+    }
+    public void updateChest(){
+        String chest = editChest.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserChest(id, chest);
+        Log.d("update", " chest was updated ");
+
+    }
+    public void updateWaist(){
+        String waist = editWaist.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserWaist(id,waist);
+        Log.d("update", " waist was updated ");
+
+    }
+    public void updateThighs(){
+        String thigh = editThighs.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserThigh(id,thigh);
+        Log.d("update", " thighs were updated ");
+
+    }
+    public void updateCalves(){
+        String calves = editCalves.getText().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = user.getUid();
+        Log.d("update", " id: " + id);
+        repository.updateUserCalves(id,calves);
+        Log.d("update", " calves were updated ");
+
+    }
 
 
 
@@ -165,23 +214,28 @@ public class ChangeBodyStats extends Fragment {
                     editBodyFat.getText().clear();
                     break;
                 case R.id.ap5:
-
+                    updateBicep();
+                    editBiceps.getText().clear();
                     break;
                 case R.id.ap6:
-
+                    updateForearm();
+                    editForearms.getText().clear();
                     break;
                 case R.id.ap7:
-
+                    updateChest();
+                    editChest.getText().clear();
                     break;
-
                 case R.id.ap8:
-
+                    updateWaist();
+                    editWaist.getText().clear();
                     break;
                 case R.id.ap9:
-
+                    updateThighs();
+                    editThighs.getText().clear();
                     break;
                 case R.id.ap10:
-
+                    updateCalves();
+                    editCalves.getText().clear();
                     break;
                 }
 
